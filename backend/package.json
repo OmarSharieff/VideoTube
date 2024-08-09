@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A production grade video platform",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarSharieff/VideoTube.git"
+  },
+  "author": "Mohammad Omar Sharieff",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OmarSharieff/VideoTube/issues"
+  },
+  "homepage": "https://github.com/OmarSharieff/VideoTube#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3"
+  }
+}
