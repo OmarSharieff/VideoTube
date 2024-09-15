@@ -22,14 +22,10 @@ const uploadOnCloudinary = async (localPath)=> {
     console.log(response.url);
     return response
   } catch (error) {
-    
+    //removing the locally saved file as the upload operation got failed
+    fs.unlinkSync(localPath)
+    return null
   }
 }
 
-//Upload an Image
-// const uploadResult = await cloudinary.uploader
-// .upload(
-//     'https://res.cloudinary.com/demo/image/upload/getting-started/shoes.jpg', {
-//         public_id: 'shoes',
-//     }
-// )
+export {uploadOnCloudinary}
