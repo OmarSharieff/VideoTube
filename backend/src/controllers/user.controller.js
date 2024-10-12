@@ -7,7 +7,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 // a function for generating access and refresh token together
 const generateAccessTokenAndRefreshToken = async(userId)=> {
   try {
-    const user = User.findById(userId);
+    const user = await User.findById(userId);
     const accessToken = user.generateAccessToken();
     const refreshToken = user.generateRefreshToken();
     user.refreshToken = refreshToken;
@@ -99,7 +99,7 @@ const loginUser = asyncHandler( async(req,res) => {
   }
 
   //Find the user
-  const user = User.findOne({
+  const user = await User.findOne({
     $or: [{email}, {username}]
   });
 
@@ -108,7 +108,7 @@ const loginUser = asyncHandler( async(req,res) => {
   }
 
   //Validate user's password.
-  const validatePassword = await user.isPasswordCorrect(user.password);
+  const validatePassword = await user.isPasswordCorrect(password);
 
   if(!validatePassword) {
     throw new ApiError("Invalid User Password", 401);
