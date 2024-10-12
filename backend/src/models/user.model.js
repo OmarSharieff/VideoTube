@@ -30,6 +30,13 @@ const userSchema = new Schema({
     trim: true,
     index: true,
   },
+  password: {
+    type: String,
+    required: [true, "Password is required"]
+  },
+  refreshToken: {
+    type: String,
+  },
   avatar: {
     type: String, //Cloudinary URL
     required: true,
